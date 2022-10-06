@@ -1,0 +1,21 @@
+function meetings(input) {
+    let result = {};
+    for (const line of input) {
+        let [day, name] = line.split(` `);
+        // if there are same days
+        if(result.hasOwnProperty(day)){
+            console.log(`Conflict on ${day}!`);
+        } else {
+            result[day] = name;
+            console.log(`Scheduled for ${day}`);
+        }
+    }
+    for (let day in result) {
+        console.log(`${day} -> ${result[day]}`);
+    }
+}
+
+meetings(["Monday Peter",
+    "Wednesday Bill",
+    "Monday Tim",
+    "Friday Tim"])
